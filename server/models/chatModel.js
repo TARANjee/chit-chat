@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const chatSchema = mongoose.Schema({
   chatname: { type: String, trim: true },
   isGroupChat: { type: Boolean, default: false },
-    users: [{
+  users: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: "User"
     }],
@@ -13,7 +13,7 @@ const chatSchema = mongoose.Schema({
     },
     groupAdmin: {
       type: mongoose.Schema.Types.ObjectId,
-        ref: "User" 
+      ref: "User" 
     }
 },
 {

@@ -1,7 +1,12 @@
 import express from 'express'
 import {chats} from './data/data.js'
 import dotenv from 'dotenv';
+import mongoose from 'mongoose';
+import connectDB from './config/db.js';
+import colors from 'colors';
+
 dotenv.config();
+connectDB();
 const app = express();
 const PORT = process.env.PORT || 5000;
 app.get('/', (req, res) => {
@@ -19,5 +24,6 @@ app.get('/api/chat/:id', (req, res) => {
 
 
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on http://localhost:${PORT}` .yellow.bold);
+
 });
