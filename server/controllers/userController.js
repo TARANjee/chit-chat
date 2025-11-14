@@ -4,7 +4,7 @@ import generateToken from "../config/generateToken.js";
 
 const registerUser = asyncHandler (async(req,res) => {
   // Registration logic here
-  const { name, email, password } = req.body;
+  const { name, email, password, pic } = req.body;
 
   if (!name || !email || !password) {
     res.status(400);
@@ -16,7 +16,7 @@ const registerUser = asyncHandler (async(req,res) => {
     res.status(400);
     throw new Error("User already exists");
   }
-    const user = await User.create({ name, email, password});
+    const user = await User.create({ name, email, password,pic});
     if (user) {
       res.status(201).json({
         _id: user._id,
